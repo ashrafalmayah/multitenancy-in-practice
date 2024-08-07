@@ -3,14 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Scopes\TenantScope;
+use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, BelongsToTenant;
 
     /**
      * The attributes that are mass assignable.
@@ -32,17 +32,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    protected static function booted(): void
-    {
-        static::addGlobalScope(new TenantScope);
-
-        static::creating(function ($user) {
-            if (session()->has('tenant_id')) {
-                $user->tenant_id = session('tenant_id');
-            }
-        });
-    }
 
     /**
      * Get the attributes that should be cast.

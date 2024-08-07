@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tenant_id')->nullable();
+            $table->foreignId('tenant_id')->nullable()->index();
             $table->timestamps();
         });
     }
