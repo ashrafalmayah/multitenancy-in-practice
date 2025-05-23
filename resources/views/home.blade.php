@@ -17,6 +17,9 @@
                         Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"><span
                                 class="absolute inset-0" aria-hidden="true"></span>Read more <span
                                 aria-hidden="true">&rarr;</span></a>
+
+                                <h1>hi Ashraf</h1>
+
                     </div>
                 </div>
                 <div class="text-center">
